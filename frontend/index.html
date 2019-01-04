@@ -6,9 +6,13 @@
   <title>Cake builder</title>
 
   <link rel="stylesheet" href="index.css">
+  <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
 <body>
+
+
 
   <div id='toy-header'>
     <img src="https://previews.123rf.com/images/lenm/lenm1705/lenm170500075/78578320-typography-illustration-featuring-a-slice-of-cake-with-the-idiom-piece-of-cake.jpg"
@@ -20,21 +24,50 @@
     <form class="add-toy-form" style="">
       <h3>Create your own Cake!</h3>
 
-      <input type="text" id="toyname" name="name" value="" placeholder="Enter a toy's name..." class="input-text">
+      <input type="text" id="toyname" name="name" value="" placeholder="Enter the Cake's name..." class="input-text">
       <br>
-      <input type="text" id="toyimg" name="image" value="" placeholder="Enter a toy's image URL..." class="input-text">
+      <input type="text" id="toyimg" name="image" value="" placeholder="Enter the Cake's image URL..." class="input-text">
       <br>
       <input type="submit" name="submit" value="Create New Cake" class="submit">
     </form>
   </div>
-  <p style='text-align:center'>basket empty <button id='new-toy-btn'>Add a new Cake!</button></p>
+  <p style='text-align:center'> <button class="submit-button" id='new-toy-btn'>Add a new Cake!</button></p>
 
 
   <div id="toy-collection">
+    <div class='base-container'>
+      <button class="submit-button" id="base-left">&lt;</button>
+      <div class="card" id="base-card">
+        <h1>Base</h1>
+      </div>
+      <button class="submit-button" id="base-right">&gt;</button>
+    </div>
+    <div class='base-container'><button class="submit-button" id="icing-left">&lt;</button><div class="card" id="icing-card"><h1>Icing</h1></div><button class="submit-button" id="icing-right">&gt;</button></div>
+    <div class='base-container'><button class="submit-button" id="topping-left">&lt;</button><div class="card" id="topping-card"><h1>Extra Topping</h1></div><button class="submit-button" id="topping-right">&gt;</button></div>
+    <div class='base-container'><div class="card" id="cake-card"><h1>Buy Your Cake</h1></div></div>
   </div>
 
+  <form action="/charge" method="post" id="payment-form">
+    <div class="form-row">
+      <!-- <label for="card-element">
+        Credit or debit card
+      </label> -->
+
+      <div id="card-element">
+        <!-- A Stripe Element will be inserted here. -->
+      </div>
+
+      <!-- Used to display form errors. -->
+      <div id="card-errors" role="alert"></div>
+      <button class="submit-button">Submit Payment</button>
+    </div>
+
+
+  </form>
 
   <script type="text/javascript" src="src/index.js"></script>
+  <script type="text/javascript" src="src/stripe.js"></script>
+
 </body>
 
 </html>
