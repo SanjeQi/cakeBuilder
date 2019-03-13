@@ -2,7 +2,7 @@
 
 CakeBuilder was designed after our introduction to Javascript course.
 
-You are able to pick a Base, Icing and Topping. With these three, you can add your cake which makes a stripe purchase form viewable.
+You are able to pick from a carousel of Bases, Icings and Toppings. With one of each selected, you can add your cake. Then a stripe purchase form becomes viewable.
 
 Backend using Ruby on Rails and a front-end in vanilla javascript.
 
